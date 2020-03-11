@@ -21,3 +21,24 @@ Future getHomePageContent() async {
     return print('ERROR:=========>$e');
   }
 }
+
+//获取热卖商品
+Future getHomePageBelowContent() async {
+  try {
+    Response response;
+    Dio dio = Dio();
+    dio.options.contentType = Headers.formUrlEncodedContentType;
+    int page = 1;
+    response = await dio.post(
+      servicePath['homePageBelowContent'],
+      data: page,
+    );
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw Exception('后端接口出现异常。');
+    }
+  } catch (e) {
+    return print('ERROR:=========>$e');
+  }
+}

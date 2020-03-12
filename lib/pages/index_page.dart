@@ -37,11 +37,11 @@ class _IndexPageState extends State<IndexPage> {
     MemberPage(),
   ];
   int _currentIndex = 0;
-  var _currentPage;
+  var currentPage;
 
   @override
   void initState() {
-    _currentPage = tabBodies[_currentIndex];
+    currentPage = tabBodies[_currentIndex];
     super.initState();
   }
 
@@ -56,7 +56,7 @@ class _IndexPageState extends State<IndexPage> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
-            _currentPage = tabBodies[index];
+            currentPage = tabBodies[index];
           });
         },
       ),
